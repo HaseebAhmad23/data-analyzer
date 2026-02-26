@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from backend.routers import health, upload, chat
+
 app = FastAPI(title="Data Analyzer API", version="0.1.0")
 
 app.add_middleware(
@@ -10,6 +12,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(health.router, tags=["Health"])
+app.include_router(upload.router, prefix="/api", tags=["Upload"])
+app.include_router(chat.router, prefix="/api", tags=["Chat"])
 
 
 @app.get("/")
