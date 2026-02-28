@@ -26,6 +26,10 @@
 
 <script setup>
 import { ref } from 'vue'
+import AppHeader from './components/layout/AppHeader.vue'
+import AppFooter from './components/layout/AppFooter.vue'
+import DataInput from './components/DataInput.vue'
+import ChatArea from './components/ChatArea.vue'
 
 const sessionId = ref(null)
 const sourceType = ref(null)
