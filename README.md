@@ -125,3 +125,7 @@ data-analyzer/
 | POST | `/api/upload/url` | Submit a URL, get back a session ID |
 | POST | `/api/chat` | Send a message, get an AI response |
 
+## Author
+
+Haseeb Ahmad (Fullstack Developer)
+
