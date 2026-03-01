@@ -1,6 +1,6 @@
 # Data Analyzer
 
-A personal project to build chatbot with analyze data with OpenAI and LangChain. The idea is simple — you either upload a PDF or drop in a website URL, and then you can chat with an AI chatbot about whatever is in that document or page. Built with FastAPI on the backend and Vue 3 on the frontend.
+A personal project to build website integrated with chatbot for analyzing data using OpenAI and LangChain. Either you can upload a PDF file or drop in a website URL, and then you can chat with an AI chatbot about whatever is in that document or webpage. Built with FastAPI on the backend and Vue 3 on the frontend.
 
 ![Vue 3](https://img.shields.io/badge/Vue-3-42b883?style=for-the-badge&logo=vue.js&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-bf5427?style=for-the-badge&logo=fastapi&logoColor=white)
