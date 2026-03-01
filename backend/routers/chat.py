@@ -19,6 +19,6 @@ async def chat(payload: ChatMessage):
         raise HTTPException(status_code=404, detail="Session not found. Please upload a document first.")
 
     chain = session_store[payload.session_id]
-    result = chain.run(payload.message)
+    result = chain.invoke(payload.message)
 
     return ChatResponse(response=result)
