@@ -49,6 +49,8 @@ async def upload_pdf(file: UploadFile = File(...)):
 @router.post("/upload/url", response_model=UploadResponse)
 async def submit_url(payload: UrlInput):
     documents = load_url(str(payload.url))
+    if not documents:
+        raise HTTPException(status_code=422, detail="No text could be extracted from this URL. The page may be JavaScript-rendered or behind a login.")
     qa_chain = create_rag_chain(documents)
     session_id = str(uuid.uuid4())
     session_store[session_id] = qa_chain
