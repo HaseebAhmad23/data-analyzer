@@ -1,7 +1,7 @@
 <template>
   <div class="data-input">
     <div class="hero">
-      <h2>Analyze your data with AI</h2>
+      <h2>Analyze your data with AI Chatbot</h2>
       <p class="subtitle">Choose a source, upload or enter a URL, and start asking questions.</p>
     </div>
 
