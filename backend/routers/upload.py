@@ -23,7 +23,6 @@ class UploadResponse(BaseModel):
 
 @router.post("/upload/pdf", response_model=UploadResponse)
 async def upload_pdf(file: UploadFile = File(...)):
-    print('Request received in upload_pdf ')
     if not file.filename or not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="File must be a PDF")
 
@@ -33,14 +32,12 @@ async def upload_pdf(file: UploadFile = File(...)):
         tmp_path = tmp.name
 
     documents = load_pdf(tmp_path)
-    print('documents are created')
-    os.unlink(tmp_path)  # delete the temp file after loading
+    os.unlink(tmp_path)
+    if not documents:
+        raise HTTPException(status_code=422, detail="No text could be extracted from this PDF. It may be a scanned or image-based PDF.")
     qa_chain = create_rag_chain(documents)
-    print('qa_chain is created')
     session_id = str(uuid.uuid4())
     session_store[session_id] = qa_chain
-    print('session_store')
-    print(session_store)
 
     return UploadResponse(
         session_id=session_id,
